@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
-## Extract numbers from 24-25 AHS Report
+plt.rcParams["font.family"] = "Arial"
+
+
 # Data
 categories = [
     "KIDPII",
@@ -23,9 +25,9 @@ igc_purple = "#5B2C83"
 igc_yellow = "#F2C300"
 
 # Figure
-plt.figure(figsize=(12, 4))
+fig, ax = plt.subplots(figsize=(12, 4))
 
-bars1 = plt.bar(
+bars1 = ax.bar(
     x - width/2,
     percent_release,
     width,
@@ -33,7 +35,7 @@ bars1 = plt.bar(
     color=igc_purple
 )
 
-bars2 = plt.bar(
+bars2 = ax.bar(
     x + width/2,
     percent_spent,
     width,
@@ -41,21 +43,25 @@ bars2 = plt.bar(
     color=igc_yellow
 )
 
-# Title and labels
-plt.title(
+# Title (bold, larger)
+ax.set_title(
     "Budget Performance for Externally Financed Health Projects\n"
     "FY 2024/25 Uganda Budget",
-    fontsize=12,
-    fontweight='bold'
+    fontsize=14,
+    fontweight="bold",
+    pad=18
 )
-plt.ylabel("Percentage", fontsize=12)
-plt.xticks(x, categories, fontsize=10)
-plt.ylim(0, 110)
 
-# Legend outside plot
-plt.legend(
-    loc="upper right",
-    bbox_to_anchor=(1.02, 0.5),
+# Axis labels
+ax.set_ylabel("Percentage", fontsize=12)
+ax.set_xticks(x)
+ax.set_xticklabels(categories, fontsize=10)
+ax.set_ylim(0, 110)
+
+# Legend positioned next to title (top right)
+ax.legend(
+    loc="upper left",
+    bbox_to_anchor=(1.01, 1.15),
     frameon=False
 )
 
@@ -63,7 +69,7 @@ plt.legend(
 for bars in [bars1, bars2]:
     for bar in bars:
         height = bar.get_height()
-        plt.text(
+        ax.text(
             bar.get_x() + bar.get_width() / 2,
             height + 2,
             f"{height:.1f}%" if height != 100 else "100%",
