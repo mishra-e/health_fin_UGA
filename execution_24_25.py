@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+## Extract numbers from 24-25 AHS Report
 # Data
 categories = [
     "KIDPII",
@@ -45,7 +45,8 @@ bars2 = plt.bar(
 plt.title(
     "Budget Performance for Externally Financed Health Projects\n"
     "FY 2024/25 Uganda Budget",
-    fontsize=12
+    fontsize=12,
+    fontweight='bold'
 )
 plt.ylabel("Percentage", fontsize=12)
 plt.xticks(x, categories, fontsize=10)
@@ -53,7 +54,7 @@ plt.ylim(0, 110)
 
 # Legend outside plot
 plt.legend(
-    loc="center left",
+    loc="upper right",
     bbox_to_anchor=(1.02, 0.5),
     frameon=False
 )
