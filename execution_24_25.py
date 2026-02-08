@@ -22,7 +22,7 @@ width = 0.35
 
 # IGC colours (approximate)
 igc_purple = "#5B2C83"
-igc_yellow = "#F2C300"
+igc_yellow = "#FFD700"
 
 # Figure
 fig, ax = plt.subplots(figsize=(12, 4))
@@ -32,7 +32,7 @@ bars1 = ax.bar(
     percent_release,
     width,
     label="% Released",
-    color=igc_purple
+    color='purple'
 )
 
 bars2 = ax.bar(
@@ -45,7 +45,7 @@ bars2 = ax.bar(
 
 # Title (bold, larger)
 ax.set_title(
-    "Budget Performance for Externally Financed Health Projects\n"
+    "Figure 2: Budget Performance for Externally Financed Health Projects\n"
     "FY 2024/25 Uganda Budget",
     fontsize=14,
     fontweight="bold",
